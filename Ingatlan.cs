@@ -31,5 +31,15 @@ namespace ingatlanok
             }
         }
         public static int OsszesRegisztraltIngatlan { get { return osszesRegisztraltIngatlan; } }
+        public Ingatlan(string azonosito, string cim, string kategoria, int alapteruletM2) :this(azonosito, cim, kategoria, alapteruletM2, alapteruletM2 * 500) { }
+        public Ingatlan(string azonosito, string cim, string kategoria, int alapteruletM2, int arEzerFt) 
+        {
+            Azonosito = azonosito;
+            Cim = cim;
+            Kategoria = kategoria;
+            AlapteruletM2 = alapteruletM2;
+            ArEzerFt = arEzerFt;
+            osszesRegisztraltIngatlan++;
+        }
     }
 }
