@@ -32,3 +32,29 @@ if (File.Exists("ingatlanok.txt"))
     }
 }
 else { Console.WriteLine("[HIBA] A fájl nem létezik"); }
+Console.WriteLine("\nIngatlannyilvántartás:");
+foreach(Ingatlan i in ingatlanok) 
+{
+    Console.WriteLine(i.ToString());
+}
+Console.WriteLine($"\nRegisztrált ingatlanok száma a rendszerben: {Ingatlan.OsszesRegisztraltIngatlan} db");
+int legnagyobb = 0;
+int hely = 0;
+int legnagyobbhely = 0;
+foreach(Ingatlan i in ingatlanok) 
+{
+    if (i.AlapteruletM2 > legnagyobb) 
+    {
+        legnagyobb = i.AlapteruletM2;
+        legnagyobbhely = hely;
+    }
+    hely++;
+}
+Console.WriteLine($"\nLegnagyobb alapterületű ingatlan: {ingatlanok[legnagyobbhely].Cim} ({legnagyobb} m2)");
+Console.WriteLine($"Fizetendő vagyonszerzési illeték (4%): {Adokalkulator.VagyonszerzesiAdo(ingatlanok[legnagyobbhely].ArEzerFt)} Ft");
+double osszesnegyzetmeterar = 0;
+foreach(Ingatlan i in ingatlanok) 
+{
+    osszesnegyzetmeterar += i.NegyzetmeterAr();
+}
+Console.WriteLine($"\nIngatlanok átlagos négyzetméterára: {osszesnegyzetmeterar / ingatlanok.Count()} Ft/m2");
