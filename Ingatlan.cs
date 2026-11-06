@@ -49,5 +49,10 @@ namespace ingatlanok
         {
             return (ArEzerFt * 1000.0) / AlapteruletM2;
         }
+        public bool KategoriaEgyezik(string keresettKategoria) 
+        {
+            if (Kategoria.ToLower() == keresettKategoria.ToLower()) return true;
+            else return false;
+        }
     }
 }

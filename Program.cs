@@ -38,6 +38,11 @@ foreach(Ingatlan i in ingatlanok)
     Console.WriteLine(i.ToString());
 }
 Console.WriteLine($"\nRegisztrált ingatlanok száma a rendszerben: {Ingatlan.OsszesRegisztraltIngatlan} db");
+Console.WriteLine($"\nLakás Kategóriájú ingatlanok");
+foreach(Ingatlan i in ingatlanok) 
+{
+    if (i.KategoriaEgyezik("Lakás") == true) Console.WriteLine(i.ToString());
+}
 int legnagyobb = 0;
 int hely = 0;
 int legnagyobbhely = 0;
