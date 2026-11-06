@@ -41,5 +41,13 @@ namespace ingatlanok
             ArEzerFt = arEzerFt;
             osszesRegisztraltIngatlan++;
         }
+        public override string ToString() 
+        {
+            return $"[{Azonosito}] {Cim} ({Kategoria}) - Terület: {AlapteruletM2} m2 | Ár: {ArEzerFt} ezer Ft";
+        }
+        public double NegyzetmeterAr() 
+        {
+            return (ArEzerFt * 1000.0) / AlapteruletM2;
+        }
     }
 }
